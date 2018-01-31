@@ -14,9 +14,22 @@ class UserEventTest extends TestCase
 
     //czesc dalsza
 
+    public function tearDown()
+    {
+        Mockery::close();
+    }
+
     public function testUserRegister()
     {
-        $event = new UserEventHandler(new Mailer());
+
+
+
+       $mock = Mockery::mock(Mailer);
+       $mock->shouldReceive('sendActiveMessage')
+            ->once()
+            ->andReturn(TRUE);
+
+        $event = new UserEventHandler($mock);
         $this->assertEquals(true,$event->onUserRegister());
     }
 
