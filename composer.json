@@ -1,0 +1,28 @@
+{
+    "name": "crafter/phpunit1",
+    "description": "my own library phpunit test",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit": "^6.5",
+        "mockery/mockery": "^1.0",
+        "symfony/var-dumper": "^3.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "crafter",
+            "email": "adam@crafter.net.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "crafter\\phpunit1\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Crafter\\Tests\\": "tests/"
+        }
+    }
+
+}
