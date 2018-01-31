@@ -22,15 +22,20 @@ class UserEventTest extends TestCase
     public function testUserRegister()
     {
 
+        $event = new UserEventHandler(new Mailer());
 
+        $this->assertEquals(true,$event->onUserRegister());
 
-       $mock = Mockery::mock(Mailer);
+        /**
+       $mock = Mockery::mock('crafter\phpunit1\Mailer');
        $mock->shouldReceive('sendActiveMessage')
             ->once()
             ->andReturn(TRUE);
 
         $event = new UserEventHandler($mock);
+
         $this->assertEquals(true,$event->onUserRegister());
+         */
     }
 
 }
